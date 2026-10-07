@@ -12,3 +12,8 @@ variable "environment" {
   type        = string
   description = "Environment for the EC2 instance"
 }
+
+variable "sg_ports" {
+  type        = list(number)
+  description = "List of ports for the security group"
+}

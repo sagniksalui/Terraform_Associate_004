@@ -1,6 +1,15 @@
 resource "aws_security_group" "allow_ssh" {
   name        = local.security_group_name
   description = "Allow SSH inbound traffic and all outbound traffic"
+  dynamic "ingress" {
+    for_each = var.sg_ports
+    content {
+      from_port   = ingress.value
+      to_port     = ingress.value
+      protocol    = "tcp"
+      cidr_blocks = [local.cidr_ipv4]
+    }
+  }
 
   tags = merge(
     local.tags,

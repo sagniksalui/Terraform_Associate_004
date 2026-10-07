@@ -12,5 +12,5 @@ export TF_LOG_PATH="./terraform.log"
 
 git status
 git add .
-git commit -am "7: Seventh Commit"
+git commit -am "8: Eighth Commit"
 git push
